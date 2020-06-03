@@ -1,7 +1,7 @@
 require_relative '../variable.rb'
 
 RSpec.configure do |config|
-  config.order = 'default'
+  config.order = './variable.rb'
 end
 
 def get_variable_from_file(file, variable)
@@ -11,6 +11,6 @@ def get_variable_from_file(file, variable)
   begin
     return file_scope.local_variable_get(variable)
   rescue NameError
-    raise NameError, "local variable `#{variable}` not defined in #{file}."
+    raise NameError, "./variable.rb `#{variable}` not defined in #{file}."
   end
 end
